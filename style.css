@@ -1,88 +1,212 @@
+:root {
+    --color-primary: #5281F0;
+    --color-secondary: #FFD700;
+    --color-bg: #F4F7F9;
+    --color-text: #333;
+    --color-light-text: #555;
+}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: linear-gradient(to bottom, #e0f2f7, #c1e4f2);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
+header {
+    background: #fff;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+header nav a {
+    color: var(--color-light-text);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--color-primary);
+}
+
+/* --- Secciones --- */
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+/* Banner Principal */
+#banner {
+    background: url('../images/banner.png') no-repeat center center/cover;
     color: #fff;
     text-align: center;
-    min-height: 100vh;
+    padding: 100px 0;
     position: relative;
 }
 
-body::before {
-    content: "";
+#banner::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/paw-pattern.png');
-    background-repeat: repeat;
-    background-size: 150px;
-    opacity: 0.08;
-    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-header {
+#banner .content {
     position: relative;
     z-index: 1;
 }
 
-.banner {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
+#banner h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
 }
 
-.logo {
-    width: 200px;
-    margin-top: -80px;
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    background: white;
-    padding: 10px;
-}
-
-main {
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
-}
-
-h1, h2 {
-    margin-bottom: 1rem;
-}
-
-p {
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    font-size: 1.1rem;
-}
-
-.donate-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: #ff9800;
-    color: #fff;
+#banner p {
     font-size: 1.2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: 0.3s ease;
+    font-weight: 300;
 }
 
-.donate-button:hover {
-    background: #e68900;
+/* Sobre el proyecto */
+#about, #how-it-works, #quick-links, #footer {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    padding: 40px;
 }
 
-footer {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: rgba(0,0,0,0.3);
+#about .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+/* Cómo funciona */
+#how-it-works .container, #quick-links .container {
+    text-align: center;
+}
+
+/* Roadmap */
+#roadmap .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
+    padding-top: 20px;
+}
+
+#roadmap .timeline-item {
+    position: relative;
+    width: 80%;
+    margin-bottom: 40px;
+    padding-left: 40px;
+}
+
+#roadmap .timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    left: 0;
+    top: 5px;
     z-index: 1;
+}
+
+#roadmap .timeline-item h3 {
+    margin-bottom: 5px;
+}
+
+/* Enlaces rápidos */
+#quick-links .links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#quick-links .links a {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+#quick-links .links a:hover {
+    background: #426fc4;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    header nav a {
+        margin: 0.5rem 0.5rem;
+    }
+
+    #banner h1 {
+        font-size: 2.5rem;
+    }
+
+    #roadmap .timeline-item {
+        width: 100%;
+    }
 }
